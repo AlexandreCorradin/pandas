@@ -663,7 +663,7 @@ class SAS7BDATReader(BaseIterator):
                         unit = 's'
                     if unit:
                         rslt[name] = pd.to_datetime(rslt[name], unit=unit,
-                                                    origin="1960-01-01")
+                                                    origin="1960-01-01", errors='coerce')
                 jb += 1
             elif self.column_types[j] == b's':
                 rslt[name] = self._string_chunk[js, :]
